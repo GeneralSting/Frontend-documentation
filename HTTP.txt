@@ -1,0 +1,84 @@
+HTTP is a protocol for fetching resources such as HTML
+
+client -> request 
+server -> response
+
+proxies
+	-caching
+	-filtering
+	-load balancing
+	-authentication, loggin
+
+-stateless but not sessionless
+
+-HTTP relies on the tcp standard
+	-client <-> TCP connection <-> server
+
+
+HTTP flow:
+1. opens a TCP connection
+2. send an HTTP message
+3. read the response
+4. close or reuse connection
+
+request message:
+	-an HTTP method (GET, POST)
+	-path of the resource to fetch
+	-version of HTTP protocol
+	-optional headers with additional information for the servers
+	-body form some methods like POST
+
+response message
+	-version of HTTP protocol
+	-status code
+	-status message, description of status code
+	-http headers
+	-optional body containing the fetched resource
+
+XMLHttpRequest API
+Fetch API
+
+Web Storage API 
+	-data is stored in browser, data never transfer to server
+	-sessionStorage
+		-5mb
+		-ends when tab is closed (browser)
+	-localStorage
+		-5mb+
+		-doesn t end when tab is closed
+	-web storage interfaces:
+		-Storage(set, remove data)
+		-Window(Window object with two properties Window.session/localStorage)
+		-StorageEvent(event is fired on window object)
+
+http:	->url scheme
+//
+wikipedia.org	->host
+:80/			->port
+wiki/Jabuticaba	->url path
+#Description	->fragment (it is only on client and it shows particular element identify by
+					fragment -> element will be at top of screen)
+
+
+
+http (https) arhitecture
+
+|server|:	---------------->
+	-Application layer	HTTPS			--->		
+	-(SSL/TLS layer)		(Encryption)	--->
+	-Transport layer		TCP/UDP		--->
+	-Network layer		IP			--->
+	-Data Link layer		Ethernet		--->
+			
+		----->		Media			--->
+
+	-Data Link layer		Ethernet		--->
+	-Network layer		IP			--->
+	-Transport layer		TCP/UDP		--->
+	-(SSL/TLS layer)		(Encryption)	--->
+	-Application layer	HTTPS			--->
+
+
+		----------------->	|client|		
+
+HTTPS -> everything is encrypted exepct host name

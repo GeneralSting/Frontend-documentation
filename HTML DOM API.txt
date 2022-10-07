@@ -1,0 +1,21 @@
+HTML DOM API:
+
+	-it is made up of interfaces that defines funcionality of each the elements in HTML, as well as any supporting types and interfaces they realy upon
+		-access and control of HTML elements via DOM
+		-manipulation of form data
+		-audio/video
+		-access to broowser navigation history
+		-supporting interfaces for other API's
+			-web components, web storage
+	-document -> hierarchy tree of nodes 
+		-node represents single object within a document (element or text node)
+		-node doesn't represents visual content, that does element interfaces and element objects
+			-every element is a node
+		-Window > Document > Node > Element > element1 (<p>), element2 <table> > element3 <th>
+	-document by HTML standards
+		-accessing HTTP headers, locations, cookies...
+		-documents head, body, images, lists, scripts...
+		-focus, editable content
+		-mouse and keyboard event handlers
+	-HTML element classes:
+		-HTMLAreaElement, HTMLBRElement, HTMLTrackElement... ---> HTMLElement ---> HTMLElement ---> Element ---> Node (defining parent-child element connection) ---> EventTarget (defining setup for element handler listener)

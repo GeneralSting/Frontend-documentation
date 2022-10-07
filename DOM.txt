@@ -1,0 +1,26 @@
+Document Object Model:
+
+	-document -> root
+		-document object uses DOM interface
+		-HTML DOM, Javascript DOM uses Web API's for communication
+			-HTML DOM -> element arrangement within document object
+			-Javascript DOM -> HTML DOM manipulation
+
+	-interfaces:
+		-document
+		-node -> element node, text node, attribute node
+		-element
+			-node > element
+			-element inherits from node interface
+		-nodeList
+		-attribute -> attributes are nodes in the DOM just like elements are.
+		-one object uses many different interfaces
+			-table element uses interfaces:
+				-HTMLTableElement -> CRUD operations for table itself and table rows and columns
+				->Element -> DOM element
+				->Node -> table has children elements (th, tr, td)
+			-document.querySelector(selector)
+			-element.innerHTML
+			-parentNode.append(child node)
+
+	-window objects represents something like the browser and document object is the root of the document itself

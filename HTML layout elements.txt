@@ -1,0 +1,21 @@
+HTML layout elements in more details:
+
+	<main>
+		-unique
+		-one per page
+		-shouldn't be nested
+	<article>
+		-block of related content that makes sense on its own without the rest of the page
+	<section>
+		-more grouping togheter a single part of the page
+		-single piece of functionality
+		-more sections in one article
+	<aside>
+		-content not directly related to the main content
+		-provides additional information
+	<header>
+		-global header of parent element
+	<nav>,<footer>
+	-non-semantic wrappers:
+		-div -> block
+		-span -> inline

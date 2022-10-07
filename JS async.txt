@@ -1,0 +1,40 @@
+Promise
+	-Object that represents the eventual completion
+	 or failure of an asynchronous operation,
+	 and its resulting value.
+Promise States
+	-Pending	-> waiting for API to give data
+	-Fulfileld	-> returns data
+	-Rejected	-> Async call is failed
+	
+	-Settled/Resolved	-> Promise is in fulfilled or rejected
+				   state.
+
+Promises are not lazy
+	-Promises don't wait for us to request value before 
+	 they execute
+
+AXIOS
+
+return axios
+
+onerror function is only called when there is an error with
+server, if error for example is 404 then it is gonna be
+onload function called.
+
+Promise.all -> when you have more then one promeise so you
+can do sth when ALL promises are resolved, it wait for all
+promises to be resolved->either all fulfill or one rejects
+	Promise.all([promises array])
+
+allSettled -> function used for multiple promises so you
+can show which promise is fulfilled and which is rejected
+
+async/await != Promsies
+	->they all try to make a same goal, same thing
+
+await -> must be used inside of async function
+	-> only blocks the current function
+	-> can be used on funcitons that returns promises
+
+async/await -> for catching errors you need to use try catch
