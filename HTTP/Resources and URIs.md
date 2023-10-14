@@ -17,10 +17,8 @@
 
 #### URNs
 
-- `Uniform Resource Name` identifies a resource by name in a particular namespace
-  ```
-  urn:ietf:rfc:7230 -> the IETF specification 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing
-  ```
+- `Uniform Resource Name` identifies a resource by name in a particular namespace, without specifying its location or weather it exists
+  - `www.example.com`
 
 ### Syntax of Uniform Resource Identifiers (URIs)
 
