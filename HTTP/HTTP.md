@@ -62,7 +62,7 @@
 - connection is controlled at the transport layer
   - out of scope for HTTP
 - `TCP` connection-based transport protocol
-  - before exchanging HTPP request/response pair TCP connection must be established
+  - before exchanging HTTP request/response pair TCP connection must be established
   - HTTP/2 multiplexing messages over a single TCP connection
 
 ### What can be controlled by HTTP
@@ -83,7 +83,7 @@
     - client sends `Authorization` header to supply the credentials to the server - encoded for the selected "challenge" authentication method.
       -  `WWW-Authenticate` header. This header indicates what authentication schemes can be used to access the resource (protected routes)
     - &lt;auth-scheme&gt;, realm, token68
-- proxa and tunneling
+- proxy and tunneling
   - server and client hides true IP address
     - HTTP goes through proxies to cross this network barrier
     - not all proxies are HTTP proxies
