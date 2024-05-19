@@ -76,7 +76,7 @@
 - type and subtype
   - type/subtype
   - type presents the general category
-  - subtype identifies the exact kidn of data of the speicfied type the MIME type represents
+  - subtype identifies the exact kind of data of the speicfied type the MIME type represents
   - always has both a type and a subtype
   - optional parameter to provide additional details
     ```
