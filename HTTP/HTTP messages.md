@@ -9,6 +9,8 @@
   3. blank line indicating all meta-information for the request has been sent
   4. optional body
 
+![HTTP message structure](https://documentation.help/DogeTool-HTTP-Requests-vt/http_responsemessageexample.png)
+
 ## HTTP requests
 
 ### Start line
@@ -39,7 +41,7 @@
   - describe the original format of the message data and any encoding applied
   - `Content-Type`
 
-![request headers](./images/request_header.png)
+![request header groups](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages/http_request_headers3.png)
 
 ### Body
 
