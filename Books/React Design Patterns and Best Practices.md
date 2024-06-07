@@ -150,3 +150,136 @@ function shouldIKeepSomethingInReactState() {
   - more concerned with the visual representation
   - render the HTML markup
   - receive data from the parents in the form of props
+
+### Data flow
+
+1. `Undirectional Data Flow` - from the root to the leaves, sigle direction from the top to the bottom of the tree
+2. Child-parent communication (callbacks), when data goes from child (inner) component (function), those components/functions all called `callbacks`
+
+### Forms
+
+#### Uncontrolled components
+
+- a component that renders form elements, where the form element's data is handled by the **DOM (default DOM behavior)**. To access the input's DOM node and extract its value you can use a _ref_.
+
+```js
+const Uncontrolled = () => (
+  <form>
+    <input type="text" />
+    <button>Submit</button>
+  </form>
+);
+```
+
+#### Controlled components
+
+- a component that renders form elements and controls them by keeping the form data in the **component's state**
+  - in a controlled component, the form element's data is handled by the **React component** (not DOM) and kept in the component's state. A controlled component basically overrides the default behavior of the HTML form elements.
+
+```js
+// if we run this component isnide the browser, we realize that it shows the default value as expected, but it does not let us change the value or type anything else inside it
+// input is read-only
+// onChange handler expected for full control
+const Controlled = () => (
+  <form>
+    <input type="text" value="Hello React" />
+    <button>Submit</button>
+  </form>
+);
+```
+
+### Events
+
+- events work in a slightly different way across the various browsers
+- React tries to abstract the way events work and give developers a consistent interface to deal with
+  - `synthetic event` is an object that wraps the original event object provided by the browser and it has the same properties, not matter the browser where it is created
+    - synthetic events are reused, and that there is a `single global handler`
+    - we cannot sotre a synthetic event and reuse it later because it becomes null right after the action
+  - single event listener is attached to the root element, which listens to all the events - `event bubbling`
+    - when an event is fired by the browser, React calls the handler on the spcific components on its behalf - `event delegation` (memory and speed optimization)
+
+### Universal applications
+
+- `universal application` - app that can run both on the server and on the client side with the same code
+- `isomorphic application` - building application that looks the same on the server and the client
+
+### Server-side rendering
+
+- SSR does not give us the level of interactivity for users, while CSR does not get indexed by search engines
+- SEO
+  - Search Engine Optimization
+- common code base
+- better performance
+  - CSR needs to wait for the bundle to be loaded and run before users can take any actions
+
+### Reconciliation and keys
+
+- `render method` - when React has to display a component and the render methods of its children recursively
+
+  - render method of a component returns a tree of React elements, which React uses to decide which DOM operations have to be done to update the UI
+
+- `reconciliation` - whenever a component's state changes, React calls the render methods on the nodes again and it compares the result with the previous tree of React elements
+
+  - minimum operations required to apply the expected changes on the screen
+  - comapring two trees of elements is not free either and React makes two assumptions to reduce its complexity
+    - if two elemnts have a different type, they render a different tree
+    - developers can use keys to mark children as stable across different render calls
+      - warning in the browser console: "Each child in an array or iterator should have a unique "key" prop. Check the render method of `List`."
+
+- React tries to apply the smalles possible number of operations on the DOM because touching the `Document Object Model` is an expensive operation
+
+### Optimization techniques
+
+- Webpack
+  - build the bundle setting the NODE*ENV environment variable to \_production*
+  - minify the resulting code to save bytes and make the application load faster
+
+```js
+new webpack.DefinePlugin({
+  'process.env': {
+  NODE_ENV: JSON.stringify('production')
+  }
+}),
+```
+
+```js
+new webpack.optimize.UglifyJsPlugin();
+```
+
+### Common testing solutions
+
+- testing higher-order components
+- the page object pattern
+
+### Anti-Patterns
+
+#### Initializing the state using props
+
+- duplicated source of truth
+- if the prop passed to the component changes the state does not get updated
+
+#### Mutating the state
+
+- straightforward API to mutate the internal state of components - `setState` function
+- mutate state without using setState
+  - the state changes without making the component re-render
+  - whenever setState get called in future, the mutated state gets applied
+
+#### Using indexed as a key
+
+- index always starts from 0 even if we push a new item to the top of the list so React thinks that we changed the values of the existing items and that we addded a new element at new index value
+
+#### Spreading props on DOM elements
+
+```js
+<Component {...props} />
+```
+
+- This works very well and it gets transpiled into the following code by Babel: React.createElement(Component, props);
+- risk of adding unknown HTML attributes, it is not related only to the spread operator, passing non-standard properties one by one leads to the same issues and warning
+  - spread operators _hides_ the single properties we are spreading
+- To see the warning in the console, a basic operation we can do is render the following component:
+
+```js
+const Spread = () => <div foo="bar" />; // Unknown prop `foo` on <div> tag. Remove this prop from the element
+```
