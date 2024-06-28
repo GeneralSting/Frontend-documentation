@@ -50,7 +50,7 @@
   - no sideeffects, function does not change anything that is not local to the functions itself
 - immutablity
   - pure functions do not mutate the state
-  - instead of changing the value of a variable, function creates a new avriable with a new value and returns it
+  - instead of changing the value of a variable, function creates a new variable with a new value and returns it
 - currying
   - process of converting a function that takes multiple arguments into a function that takes one argument at a time, returning another function
 - composition
@@ -76,7 +76,7 @@ var _this = this;
 
 - binding a function inside the render method has in fact an unexpected sife-effect because the arrow function gets fired every time the component is rendered
   - if we are passing the function down to a child component, it receives a new prop on each update which leads to inefficient rendering
-  - best way to solve it is to bind the function isnde the construction in a way that it does not ever change even if the component renders multiple times:
+  - best way to solve it is to bind the function inside the construction in a way that it does not ever change even if the component renders multiple times:
 
 ```js
 class Button extends React.Component {
