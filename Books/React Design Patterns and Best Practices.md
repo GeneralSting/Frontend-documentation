@@ -23,6 +23,14 @@
   - type tells React how to deal with the element itself
     - type string represents a `DOM node`
     - type function is the `component` element
+  - elements type example:
+    ```js
+    <div> // <- ReactElement
+      <Component> // <- ReactElement
+        {condition && 'text'} // <- ReactNode
+      </Component>
+    </div>
+    ```
 
 #### React Element Tree
 
@@ -153,7 +161,7 @@ function shouldIKeepSomethingInReactState() {
 
 ### Data flow
 
-1. `Undirectional Data Flow` - from the root to the leaves, sigle direction from the top to the bottom of the tree
+1. `Undirectional Data Flow` - from the root to the leaves, single direction from the top to the bottom of the tree
 2. Child-parent communication (callbacks), when data goes from child (inner) component (function), those components/functions all called `callbacks`
 
 ### Forms
@@ -194,7 +202,7 @@ const Controlled = () => (
 - React tries to abstract the way events work and give developers a consistent interface to deal with
   - `synthetic event` is an object that wraps the original event object provided by the browser and it has the same properties, not matter the browser where it is created
     - synthetic events are reused, and that there is a `single global handler`
-    - we cannot sotre a synthetic event and reuse it later because it becomes null right after the action
+    - we cannot store a synthetic event and reuse it later because it becomes null right after the action
   - single event listener is attached to the root element, which listens to all the events - `event bubbling`
     - when an event is fired by the browser, React calls the handler on the spcific components on its behalf - `event delegation` (memory and speed optimization)
 
@@ -222,11 +230,11 @@ const Controlled = () => (
 
   - minimum operations required to apply the expected changes on the screen
   - comapring two trees of elements is not free either and React makes two assumptions to reduce its complexity
-    - if two elemnts have a different type, they render a different tree
+    - if two elements have a different type, they render a different tree
     - developers can use keys to mark children as stable across different render calls
       - warning in the browser console: "Each child in an array or iterator should have a unique "key" prop. Check the render method of `List`."
 
-- React tries to apply the smalles possible number of operations on the DOM because touching the `Document Object Model` is an expensive operation
+- React tries to apply the smallest possible number of operations on the DOM because touching the `Document Object Model` is an expensive operation
 
 ### Optimization techniques
 
