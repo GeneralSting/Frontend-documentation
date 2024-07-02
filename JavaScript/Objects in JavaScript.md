@@ -250,7 +250,7 @@ if ("description" in contentBlock)
 
 <br>
 
-![stack and heap](stack_vs_heap.png)
+![stack and heap](https://miro.medium.com/v2/resize:fit:640/1*meHiGHOaRCwJdyND_cYh0Q.png)
 
 ## Comparing and cloning objects
 
