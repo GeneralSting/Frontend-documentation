@@ -76,6 +76,15 @@
 
 - tells the IntersectionObserver to stop observing a particular target element
 
+## Interfaces
+
+- IntersectionObserver
+- InterSectionObserverEntry
+  - describes the intersection between the target element and its root container at a specific moment of transition
+  - can be only obtained in two ways:
+    - as an input to IntersectionObserver callback
+    - calling IntersectionObserver.takeRecords()
+
 ## Example
 
 ```js
