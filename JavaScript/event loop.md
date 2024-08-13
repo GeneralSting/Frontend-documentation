@@ -59,6 +59,10 @@
 
 - processing of functions continues until the stack is once again empty, then, the event loop will process the next message in the queue if there is one
 
+- **Task queue and Microtask queue**
+  - in task queue goes web APIs, on microtask which is prioritized by event loop goes async await tasks
+    - when microtask queue is empty then it checks task queue and deals with it
+
 ## Event loop
 
 - got its name because of how it is usually implemented, which usually resembles:
@@ -96,7 +100,7 @@
 
 ## Never blocking
 
-- property of the event loop model is that JavaScript never blocks - handling I/O is typically performed via events and callback, so when the application is waiting for na query to return or a fetch request it can still process other things like user input
+- property of the event loop model is that JavaScript never blocks - handling I/O is typically performed via events and callback, so when the application is waiting for query to return or a fetch request it can still process other things like user input
 
 ## Rendering DOM
 

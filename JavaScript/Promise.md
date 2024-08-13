@@ -7,7 +7,7 @@
 - Promise is a proxy for a value not necessarily known when the promise is created
 
   - it allows us to associate handlers with an asynchronous action's eventual success value or failure reason
-  - allows async methods return values like syncronous methods: instead of immediately returning the final value, the async method returns a promise to uspply the value at some point in the future
+  - allows async methods return values like syncronous methods: instead of immediately returning the final value, the async method returns a promise to supply the value at some point in the future
 
 - Promise is in one of these states:
 
